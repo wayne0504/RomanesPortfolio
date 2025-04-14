@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="ger.css"/>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="logo">WG</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gerard.html">👤</a></li>
+    <li><a href="background.html">Background</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="motto.html">Motto</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="reach.html">Contacts</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="text-content fade-in">
+    <div class="floating-objects">
+      <span class="float-item">🌍</span>
+      <span class="float-item">⭐</span>
+      <span class="float-item">🌕</span>
+      <span class="float-item">☀️</span>
+      <span class="float-item">🚀</span>
+      <span class="float-item">💫</span>
+      <span class="float-item">🌑</span>
+      <span class="float-item">🪐</span>
+    </div>
+  
+  <div class="container">
+    <div class="left-section fade-in">
+      <h1 id="heading">Who is Wayne?</h1>
+      <ul>
+        <li>WAYNE GERARD BUENSUCESO ROMANES</li>
+        <li>AGE: 20</li>
+        <li>PROGRAM: BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</li>
+        <li>HOBBIES: VOLLEYBALL</li>
+        <li>DREAM: PROFESSIONAL PHOTOGRAPHER</li>
+        <li></li>
+      </ul>
+      <hr />
+    </div>
+    <div class="right-section fade-in">
+      <img src="gerard.img.jpg" alt="Wayne Photo" id="profileImage"/>
+    </div>
+  </div>
+
+  <script>
+    // Typing animation for heading with continuous loop
+    const heading = document.getElementById("heading");
+    const text = heading.textContent;
+    heading.textContent = ''; // Clear the text initially
+    let index = 0;
+  
+    const typeText = () => {
+      if (index < text.length) {
+        heading.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 100); // Speed of typing effect
+      } else {
+        setTimeout(() => {
+          heading.textContent = ''; // Clear the text after typing is done
+          index = 0; // Reset index
+          typeText(); // Restart the typing animation
+        }, 1000); // Wait a second before restarting the typing
+      }
+    };
+    typeText();  
+    // Fade-in effect on page load
+    window.addEventListener('load', () => {
+      const fadeInElements = document.querySelectorAll('.fade-in');
+      fadeInElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, index * 300);  // Staggered fade-in
+      });
+    });
+
+    // Zoom effect on hover for the image
+    const profileImage = document.getElementById("profileImage");
+    profileImage.addEventListener('mouseover', () => {
+      profileImage.style.transform = 'scale(1.1)';
+      profileImage.style.transition = 'transform 0.3s ease';
+    });
+    profileImage.addEventListener('mouseout', () => {
+      profileImage.style.transform = 'scale(1)';
+      profileImage.style.transition = 'transform 0.3s ease';
+    });
+
+    // Smooth scroll-triggered fade-in effect
+    const sections = document.querySelectorAll('.fade-in');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (sectionTop < screenHeight - 150) {
+          section.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

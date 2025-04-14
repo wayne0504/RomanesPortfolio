@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="skills.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">WG</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gerard.html">About Me</a></li>
+      <li><a href="background.html">Background</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="motto.html">Motto</a></li>
+      <li><a href="skills.html">🛠️</a></li>
+      <li><a href="reach.html">Contacts</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <div class="skills-text">
+      <div class="floating-objects">
+        <span class="float-item">🌍</span>
+        <span class="float-item">⭐</span>
+        <span class="float-item">🌕</span>
+        <span class="float-item">☀️</span>
+        <span class="float-item">🚀</span>
+        <span class="float-item">💫</span>
+        <span class="float-item">🌑</span>
+        <span class="float-item">🪐</span>
+      </div>
+    
+      <h1>Skills</h1>
+      <ol>
+        <li>Critical Thinking</li>
+        <li>Design</li>
+        <li>Coding</li>
+        <li>Time Management</li>
+        <li>Creativeness</li>
+      </ol>
+    </div>
+
+    <div class="chart">
+      <canvas id="skillsChart" width="400" height="400"></canvas>
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+    const skillsChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Critical Thinking', 'Designing', 'Coding', 'Time Management', 'Creativeness'],
+        datasets: [{
+          label: 'Skills',
+          data: [22.6, 19.4, 9.7, 22.6, 25.8],
+          backgroundColor: [
+            '#80dfff',
+            '#66c2ff',
+            '#3385ff',
+            '#1a75ff',
+            '#333366'
+          ],
+          borderColor: '#000',
+          borderWidth: 0,
+          hoverOffset: 50,
+          hoverBorderColor: '#fff',
+          hoverBorderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'right',
+            labels: {
+              color: '#fff'
+            }
+          },
+          tooltip: {
+            enabled: true,
+            backgroundColor: '#333',
+            titleColor: '#fff',
+            bodyColor: '#fff'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
